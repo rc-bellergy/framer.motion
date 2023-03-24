@@ -1,6 +1,11 @@
 .main {
-  @apply container max-w-md mx-auto rounded-lg bg-slate-200 p-6 mt-8 text-center [&>*]:py-3;
+  @apply w-full h-5/6 max-w-[400px] max-h-[600px]
+    absolute mx-auto left-0 right-0 /* x-center */
+    mt-10
+    bg-gradient-to-r from-slate-100 to-slate-200
+    rounded-lg overflow-hidden;
 }
-.sphare {
-  @apply rounded-full w-20 h-20 block bg-red-500 m-auto;
+.description {
+  @apply flex flex-col justify-start
+    absolute p-5;
 }
