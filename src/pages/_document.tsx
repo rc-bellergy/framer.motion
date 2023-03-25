@@ -1,4 +1,5 @@
 import { Html, Main, NextScript, Head } from 'next/document'
+import Footer from '@/pages/snippets/Footer'
 
 export default function Document () {
   return (
@@ -7,6 +8,7 @@ export default function Document () {
       <body>
         <Main />
         <NextScript />
+        <Footer />
       </body>
     </Html>
   )
