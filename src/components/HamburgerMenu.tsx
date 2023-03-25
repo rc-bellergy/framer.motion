@@ -10,7 +10,7 @@ export default function HamburgerMenu ({
     <button className={className} onClick={onClick}>
       <svg width='100%' viewBox='0 0 23 23'>
         <Path
-          isOpen={isOpen}
+          status={isOpen ? 'open' : 'closed'}
           color={color}
           variants={{
             closed: { d: 'M 2 2.5 L 20 2.5' },
@@ -18,7 +18,7 @@ export default function HamburgerMenu ({
           }}
         />
         <Path
-          isOpen={isOpen}
+          status={isOpen ? 'open' : 'closed'}
           color={color}
           d='M 2 9.423 L 20 9.423'
           variants={{
@@ -28,7 +28,7 @@ export default function HamburgerMenu ({
           transition={{ duration: 0.1 }}
         />
         <Path
-          isOpen={isOpen}
+          status={isOpen ? 'open' : 'closed'}
           color={color}
           variants={{
             closed: { d: 'M 2 16.346 L 20 16.346' },
@@ -41,7 +41,7 @@ export default function HamburgerMenu ({
 }
 
 function Path (props: any) {
-  let color = props.color ? props.color : '#ff0000'
+  const color = props.color ? props.color : '#ff0000'
 
   return (
     <motion.path
@@ -49,7 +49,7 @@ function Path (props: any) {
       strokeWidth='3'
       stroke={color}
       strokeLinecap='round'
-      animate={props.isOpen ? 'open' : 'closed'}
+      animate={props.status}
       {...props}
     />
   )

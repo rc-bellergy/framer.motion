@@ -7,7 +7,6 @@ export default function NewPage () {
 
   const toggle = (e: Event) => {
     setIsOpen(!isOpen)
-    console.log(isOpen)
   }
 
   return (
