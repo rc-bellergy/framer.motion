@@ -12,12 +12,15 @@ export default function Home () {
         <h1>Framer Motion Samples</h1>
         <ul>
           <li>
+            <Link href='/samples/hamburger_menu'>Hamburger Menu</Link>
+          </li>
+          <li>
             <Link href='/samples/animated_modile_menu'>
               Animated Mobile Menu
             </Link>
           </li>
           <li>
-            <Link href='/samples/stagger'>stagger</Link>
+            <Link href='/samples/stagger'>Motion.Stagger</Link>
           </li>
         </ul>
       </section>
