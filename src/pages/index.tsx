@@ -8,15 +8,19 @@ export default function Home () {
         <title>Framer Motion Sample Pages</title>
       </Head>
 
-      <h1>Index Page</h1>
-      <ul>
-        <li>
-          <Link href='/animated_modile_menu'>Animated Mobile Menu</Link>
-        </li>
-        <li>
-          <Link href='/stagger'>stagger</Link>
-        </li>
-      </ul>
+      <section className='p-10'>
+        <h1>Framer Motion Samples</h1>
+        <ul>
+          <li>
+            <Link href='/samples/animated_modile_menu'>
+              Animated Mobile Menu
+            </Link>
+          </li>
+          <li>
+            <Link href='/samples/stagger'>stagger</Link>
+          </li>
+        </ul>
+      </section>
     </>
   )
 }
