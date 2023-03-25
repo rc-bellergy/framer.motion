@@ -12,9 +12,10 @@ export default function NewPage () {
   return (
     <>
       <Head>
-        <title>Testing Page</title>
+        <title>Hamburger Menu Testing</title>
       </Head>
-      <div className='flex items-center justify-center h-screen'>
+      <div className='flex flex-col items-center justify-center'>
+        <h1 className='p-20'>Hamburger Menu Testing</h1>
         <HamburgerMenu
           className='w-10 h-10'
           color='#1d4ed8'
