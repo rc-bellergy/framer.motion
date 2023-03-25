@@ -11,7 +11,10 @@ export default function Home () {
       <h1>Index Page</h1>
       <ul>
         <li>
-          <Link href='/animated-modile-menu'>Animated Mobile Menu</Link>
+          <Link href='/animated_modile_menu'>Animated Mobile Menu</Link>
+        </li>
+        <li>
+          <Link href='/stagger'>stagger</Link>
         </li>
       </ul>
     </>

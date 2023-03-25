@@ -1,4 +1,4 @@
-import { motion, MotionConfig } from 'framer-motion'
+import { motion } from 'framer-motion'
 import styles from '@/components/MenuToggle.module.css'
 
 export default function MenuToggle ({ toggle, isOpen, extendHeight }: any) {

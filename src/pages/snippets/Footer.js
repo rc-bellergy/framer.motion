@@ -1,6 +1,6 @@
 export default function Footer () {
   return (
-    <footer className='bg-slate-300 rounded-sm p-3 fixed bottom-1 right-1'>
+    <footer className='bg-slate-300 rounded-lg p-3 fixed bottom-1 right-1'>
       <p className='text-sm'>
         Craeted by <a href='https://designquest.com.hk'>Design Quest Ltd.</a>
         <br />

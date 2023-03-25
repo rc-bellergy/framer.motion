@@ -2,12 +2,9 @@
 // https://codesandbox.io/s/framer-motion-side-menu-mx2rw?from-embed
 
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import { useState, useRef } from 'react'
 import MenuToggle from '@/components/MenuToggle'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import styles from '@/styles/animated_modile_menu.module.css'
 
 export default function AnimatedMobileMenu () {
   const containerRef = useRef(null)
