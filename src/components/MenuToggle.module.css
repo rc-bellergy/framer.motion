@@ -1,8 +1,0 @@
-.button {
-  @apply w-[60px] h-[60px] absolute bottom-0 right-0 my-0;
-}
-.background {
-  @apply bg-blue-600 absolute w-full h-full left-0 top-0;
-  /* clip-path: circle(42px at 30px 30px); */
-  transform: scale(-1);
-}

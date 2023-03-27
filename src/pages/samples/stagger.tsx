@@ -43,7 +43,9 @@ export default function Stagger () {
   )
 }
 
-function Ball ({ label, children }: any) {
+type BallProps = {}
+
+function Ball ({ children }: any) {
   return (
     <>
       <div

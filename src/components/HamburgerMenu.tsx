@@ -1,11 +1,18 @@
 import { motion } from 'framer-motion'
 
+type HamburgerMenuProps = {
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+  isOpen: Boolean
+  color: string
+  className?: string
+}
+
 export default function HamburgerMenu ({
   onClick,
   isOpen,
   color,
   className
-}: any) {
+}: HamburgerMenuProps) {
   return (
     <button className={className} onClick={onClick}>
       <svg width='100%' viewBox='0 0 23 23'>
@@ -40,7 +47,18 @@ export default function HamburgerMenu ({
   )
 }
 
-function Path (props: any) {
+type PathProps = {
+  status: 'open' | 'closed'
+  variants: {
+    open: Object
+    closed: Object
+  }
+  color?: string
+  d?: string
+  transition?: Object
+}
+
+function Path (props: PathProps) {
   const color = props.color ? props.color : '#ff0000'
 
   return (
