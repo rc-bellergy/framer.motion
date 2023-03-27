@@ -23,7 +23,7 @@ export default function AnimatedMobileMenu () {
         : { opacity: 0, scale: 0.3, filter: 'blur(20px)' },
       {
         duration: 0.2,
-        delay: stagger(0.1, { startDelay: 0.15 })
+        delay: isOpen ? stagger(0.1, { startDelay: 0.15 }) : 0
       }
     )
   })
@@ -40,16 +40,17 @@ export default function AnimatedMobileMenu () {
           extendHeight={300}
           corner='rt'
         >
-          <motion.ul
+          <ul
             ref={scope}
-            className='absolute my-16 space-y-6 
-            flex flex-col w-full items-center'
+            className='absolute my-16 space-y-8 
+            flex flex-col w-full pl-5'
           >
-            <MenuItem href='#'>Menu 1</MenuItem>
-            <MenuItem href='#'>Menu 2</MenuItem>
-            <MenuItem href='#'>Menu 3</MenuItem>
-            <MenuItem href='#'>Menu 4</MenuItem>
-          </motion.ul>
+            <MenuItem href='#'>Process Mining</MenuItem>
+            <MenuItem href='#'>Solutions</MenuItem>
+            <MenuItem href='#'>Careers</MenuItem>
+            <MenuItem href='#'>Company</MenuItem>
+            <MenuItem href='#'>Resources</MenuItem>
+          </ul>
         </MenuToggle>
         <section className={styles.description}>
           <h2 className='pt-5 text-center'>
@@ -77,7 +78,7 @@ interface MenuItemProps {
 
 function MenuItem ({ children, href }: MenuItemProps) {
   return (
-    <li className='text-2xl font-light menu-item'>
+    <li className='text-4xl font-light menu-item'>
       <a className='text-white cursor-pointer' href={href}>
         {children}
       </a>
