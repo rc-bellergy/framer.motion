@@ -1,0 +1,6 @@
+.frame {
+  @apply text-white h-[95vh] overflow-hidden m-3 rounded-2xl;
+}
+.frame img {
+  @apply relative min-w-full min-h-[120vh] mt-[-80px];
+}

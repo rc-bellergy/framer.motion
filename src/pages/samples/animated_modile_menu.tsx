@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { useAnimate, stagger, motion } from 'framer-motion'
 
 import MenuToggle from '@/components/MenuToggle'
-import styles from '@/styles/animated_modile_menu.module.css'
+import styles from './animated_modile_menu.module.css'
 
 export default function AnimatedMobileMenu () {
   const [isOpen, setIsOpen] = useState(false)

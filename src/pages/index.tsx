@@ -22,6 +22,9 @@ export default function Home () {
           <li>
             <Link href='/samples/stagger'>Motion.Stagger</Link>
           </li>
+          <li>
+            <Link href='/samples/parallax'>Parallax</Link>
+          </li>
         </ul>
       </section>
     </>
