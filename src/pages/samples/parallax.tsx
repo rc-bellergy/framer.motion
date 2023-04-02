@@ -1,14 +1,87 @@
-// Reference: https://www.framer.com/templates/hellostudio/
+// Reference: https://hellostudio.framer.website/
 
 import Head from 'next/head'
-import Image from 'next/image'
-import { useScroll } from 'framer-motion'
-import styles from './parallax.module.css'
-import dummyImage01 from '/public/images/01.jpg'
-import dummyImage02 from '/public/images/02.webp'
-import dummyImage03 from '/public/images/03.webp'
-import dummyImage04 from '/public/images/04.webp'
-import Parallax from '@/components/Parallax'
+import styled from 'styled-components'
+
+const ParallaxWrapper = styled.div`
+  height: 500px; /* fallback for older browsers */
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+`
+const Group = styled.div`
+  position: relative;
+  height: 500px; /* fallback for older browsers */
+  height: 100vh;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+`
+
+const Layer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`
+
+const LayerBase = styled(Layer)`
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 4;
+`
+
+const LayerFore = styled(Layer)`
+  -webkit-transform: translateZ(90px) scale(0.7);
+  transform: translateZ(90px) scale(0.7);
+  z-index: 1;
+`
+
+const LayerBack = styled(Layer)`
+  -webkit-transform: translateZ(-300px) scale(2.1);
+  transform: translateZ(-300px) scale(2.1);
+  z-index: 3;
+`
+
+const LayerDeep = styled(Layer)`
+  -webkit-transform: translateZ(-600px) scale(3.1);
+  transform: translateZ(-600px) scale(3.1);
+  z-index: 2;
+`
+
+const Title = styled.div`
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  p {
+    padding-top: 1rem;
+  }
+`
+const BgImageWrapper = styled.div`
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+`
+
+const BgImage = styled.img`
+  /* scale the background image to 100% screen width 
+  and 120% screen height */
+  min-width: 100%;
+  min-height: 125vh;
+
+  /* Center the image */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid;
+`
 
 export default function ParallaxPage () {
   return (
@@ -16,56 +89,113 @@ export default function ParallaxPage () {
       <Head>
         <title>Parallax Page</title>
       </Head>
-      <section className='flex flex-col bg-black'>
-        <div className={styles.frame}>
-          <div className='flex flex-col justify-end h-full p-10 bg-slate-900'>
-            <h1>HelloParalax</h1>
-            <h2 className='pt-3 font-thin'>
-              You have to think up class names all the time — nothing will slow
-              you down or drain your energy like coming up with a class name for
-              something that doesn’t deserve to be named.
-            </h2>
-          </div>
-        </div>
+      <ParallaxWrapper>
+        {/* Group 01 */}
+        <Group className='z-[5]'>
+          <LayerBase className='bg-stone-400'>
+            <Title>
+              <h1>Base Layer 01</h1>
+              <p>A demo of CSS paralax effect page.</p>
+            </Title>
+          </LayerBase>
+        </Group>
 
-        <div className={styles.frame}>
-          <div className='basis-full'>
-            <Parallax offset={80}>
-              <Image src={dummyImage01} alt='dummy image 01' />
-            </Parallax>
-          </div>
-        </div>
+        {/* Group 02 */}
+        <Group className='z-[4]'>
+          <LayerBase>
+            <Title className='text-white'>
+              <h1>Base Layer 02</h1>
+              <p>A background image.</p>
+            </Title>
+          </LayerBase>
+          <LayerBack>
+            <BgImageWrapper>
+              <BgImage src='../images/03.webp' />
+            </BgImageWrapper>
+          </LayerBack>
+        </Group>
 
-        <div className={`flex flex-row ${styles.frame}`}>
-          <div
-            className='flex flex-col justify-end h-full 
-            bg-slate-900 text-white p-10 
-              basis-1/2'
-          >
-            <h1 className='font-thin'>
-              This is most commonly used to remove a border radius that was
-              applied at a smaller breakpoint.
-            </h1>
-          </div>
-          <div className='basis-1/2'>
-            <Parallax offset={80}>
-              <Image src={dummyImage02} alt='dummy image 02' />
-            </Parallax>
-          </div>
-        </div>
+        {/* Group 03 */}
+        <Group className='z-[5]'>
+          <LayerBase className='bg-slate-200'>
+            <Title>
+              <h1>Base Layer 03</h1>
+              <p>A foreground image can flow on top.</p>
+            </Title>
+          </LayerBase>
+          <LayerFore>
+            <Title>
+              <img src='../images/logo.svg' className='opacity-70' />
+            </Title>
+          </LayerFore>
+        </Group>
 
-        <div className={styles.frame}>
-          <div className='bg-slate-500 h-full'>
-            <h1>Parallax</h1>
-          </div>
-        </div>
+        {/* Group 04 */}
+        <Group className='z-[2]'>
+          <LayerBase>
+            <Title>
+              <h1>Base Layer 04</h1>
+            </Title>
+          </LayerBase>
+          <LayerBack>
+            <Title>
+              <p>
+                I'm a description on the <b>Back Layer</b>
+              </p>
+              <p>
+                The background image behind me is on the <b>Deep Layer</b>
+              </p>
+            </Title>
+          </LayerBack>
+          <LayerDeep>
+            <BgImageWrapper>
+              <BgImage src='../images/05.jpg' />
+            </BgImageWrapper>
+          </LayerDeep>
+        </Group>
 
-        <div className={styles.frame}>
-          <Parallax offset={80}>
-            <Image src={dummyImage03} alt='dummy image 03' />
-          </Parallax>
-        </div>
-      </section>
+        {/* Group 05 */}
+        <Group className='z-[3]'>
+          <LayerBase className='bg-slate-200'>
+            <Title>
+              <h1>Base Layer 05</h1>
+              <p>A foreground flowing object.</p>
+            </Title>
+          </LayerBase>
+          <LayerFore>
+            <Title>
+              <img
+                src='../images/firefox.svg'
+                className='drop-shadow-[-20px_20px_10px_rgba(0,0,0,0.35)]'
+              />
+            </Title>
+          </LayerFore>
+        </Group>
+
+        {/* Group 06 */}
+        <Group className='z-[2]'>
+          <LayerBase>
+            <Title className='text-white'>
+              <h1>Base Layer 06</h1>
+            </Title>
+          </LayerBase>
+          <LayerBack>
+            <BgImageWrapper>
+              <BgImage src='../images/02.webp' />
+            </BgImageWrapper>
+          </LayerBack>
+        </Group>
+
+        {/* Group 07 */}
+        <Group className='z-[3]'>
+          <LayerBase className='bg-slate-800'>
+            <Title className='text-white'>
+              <h1>Base Layer 07</h1>
+              <p>The End</p>
+            </Title>
+          </LayerBase>
+        </Group>
+      </ParallaxWrapper>
     </>
   )
 }

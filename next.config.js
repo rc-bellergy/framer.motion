@@ -11,6 +11,10 @@ const nextConfig = {
         pathname: '/image/upload/**'
       }
     ]
+  },
+  compiler: {
+    // Enables the styled-components SWC transform
+    styledComponents: true
   }
 }
 
